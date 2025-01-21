@@ -6,8 +6,8 @@ pragma solidity ^0.7.0;
 import "@openzeppelin/contracts/math/SafeMath.sol";
 
 contract ContratoSeguro {
-    using SafeMath for uint8;
-    uint8 public totalSupply;
+    using SafeMath for uint256;
+    uint256 public totalSupply;
 
     constructor() {
         totalSupply = 255;
