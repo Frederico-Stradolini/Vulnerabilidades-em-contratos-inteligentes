@@ -109,7 +109,7 @@ pragma solidity ^0.7.0;
 // Versão anterior a ^0.8.0, onde não há proteção automática contra overflow e underflow
 
 contract ContratoNaoSeguro {
-    uint256 public totalSupply;
+    uint8 public totalSupply;
 
     constructor() {
         totalSupply = 255;
@@ -141,7 +141,7 @@ import "@openzeppelin/contracts/math/SafeMath.sol";
 
 contract ContratoSeguro {
     using SafeMath for uint8;
-    uint256 public totalSupply;
+    uint8 public totalSupply;
 
     constructor() {
         totalSupply = 255;
@@ -156,6 +156,6 @@ contract ContratoSeguro {
     }
 }
 ```
-Para realizar a importação da biblioteca SafeMath em compiladores online como o Remix, pode ser utilizado `import "@openzeppelin/contracts/math/SafeMath.sol"`. Na definição do contrato é especificado que a biblioteca SafeMath será aplicada para operações envolvendo dados do tipo `uint8`.
+Para realizar a importação da biblioteca SafeMath em compiladores online como o Remix, pode ser utilizado `import "@openzeppelin/contracts/math/SafeMath.sol"`. Na definição do contrato é especificado que a biblioteca SafeMath será aplicada para operações envolvendo dados do tipo `uint256`.
 
 Para a execução de operações matemáticas usam-se os métodos da biblioteca, como o `add` e o `sub`, evitando que ocorra overflow ou underflow.
