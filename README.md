@@ -9,6 +9,8 @@ Você pode navegar facilmente entre as seções clicando nos links abaixo:
 - [Overflow e Underflow](#overflow-e-underflow)
 - [Gas limit e DoS](#gas-limit-e-dos)
 - [Exposição de funções sensíveis](#exposição-de-funções-sensíveis)
+- [Ataques a usuários](#ataques-a-usuários)
+- [Ferramentas de teste](#ferramentas-de-teste)
 
 ## Reentrancy
 O ataque de reentrância ocorre quando uma função de um contrato inteligente realiza uma chamada externa para outro contrato antes de finalizar sua própria execução. Durante essa chamada externa, o contrato chamado pode, de forma maliciosa, invocar novamente a função original, explorando o estado parcial ou incompleto do primeiro contrato.
@@ -328,15 +330,32 @@ A função `doar` deve ser acessível a todos usuários, logo é definida como p
 
 Por fim, a função `obterDoadores` é declarada como uma `view`, um tipo de função que não altera o estado do contrato e nem consome gas. Também possui a funcionalidade `OnlyOwner` e só pode ser chamada pelo proprietário do contrato.
 
-## Ataques diretamente a usuários
+## Ataques a usuários
 Embora esse tipo de ataque não envolva diretamente o código desenvolvido, é fundamental que os desenvolvedores compreendam os tipos de ataques mais comuns direcionados aos usuários. Ao adquirir esse conhecimento, os desenvolvedores podem ajudar a conscientizar seus usuários para evitar cair em golpes. Mesmo que o ataque não afete diretamente a plataforma, se um usuário for vítima de um golpe em que o atacante se passa pela empresa, isso pode resultar em danos significativos à reputação. Quanto mais informados os usuários estiverem e mais intuitiva for a interface, menores serão os riscos de eles caírem em fraudes.
 
 ### Front-running
+O front-running nos mercados tradicionais refere-se à prática antiética de negociar com base em informações privilegiadas sobre ordens pendentes de outros participantes, visando lucro às custas de terceiros. Na blockchain, ocorre quando um atacante monitora a mempool, área de armazenamento temporário onde transações pendentes aguardam para serem incluídas em um bloco, e insere uma transação própria com uma taxa de gas maior para garantir prioridade e lucrar com a mudança de preço causada pela transação original.
+
+Por exemplo, um bot pode identificar uma grande ordem de compra de Ethereum (ETH) e antecipar sua execução, elevando o preço de compra da transação original e, consequentemente, gerando custos adicionais ao investidor. Após a conclusão da ordem original, o preço do ativo é ligeiramente inflacionado, permitindo que o bot realize a venda e obtenha lucro às custas do investidor.
+
+Esse ataque é mais comum em grandes transações. Uma forma de mitigação é utilizar taxas de gas mais altas para garantir a prioridade na execução de transações importantes, reduzindo o risco de prejuízos. Conscientizar os usuários sobre essa prática dentro do dApp pode ajudar a evitar custos adicionais.
 
 ### Roubo de chave privada
+O roubo de chaves privadas é uma das ameaças mais graves na Web3, pois dá ao atacante controle total sobre os ativos digitais do usuário. A chave privada é usada para assinar transações e acessar informações confidenciais, e, se comprometida, o invasor pode manipular todos os ativos associados.
+
+Os métodos mais comuns de roubo incluem engenharia social, phishing e uso de malwares que capturam dados ou monitoram dispositivos. Para prevenir esses ataques, é crucial adotar práticas seguras, como verificar a legitimidade de sites e aplicativos, evitar compartilhar a chave privada ou a secret phrase, e utilizar métodos de proteção como cold wallets, armazenamento offline, autenticação multifator (MFA) e senhas fortes. 
+
+Por parte dos desenvolvedores, incluir avisos claros em áreas estratégicas da aplicação, informando que a chave privada nunca será solicitada pela plataforma e que ela jamais deve ser compartilhada é uma boa prática que promove a conscientização dos usuários.
 
 ### Phishing
+Phishing é um ataque cibernético que utiliza e-mails, mensagens, sites ou chamadas fraudulentas para enganar usuários a compartilhar dados confidenciais ou executar ações prejudiciais. Trata-se de uma forma de engenharia social que explora erros humanos por meio de histórias falsas e manipulação psicológica.
+
+Em um golpe típico, o atacante finge ser uma figura confiável, como um colega ou representante de marca, e instrui a vítima a clicar em links, abrir anexos ou realizar pagamentos. Esses links podem levar a sites falsos que imitam os originais, projetados para roubar dados ou acessar carteiras digitais, possibilitando a transferência de fundos para o atacante.
+
+Para proteger-se contra phishing, é fundamental verificar URLs, domínios de e-mails, acessar apenas fontes confiáveis e utilizar antivírus no navegador para identificar e bloquear sites maliciosos. Além disso, gerentes e desenvolvedores de dApps podem ajudar a conscientizar os usuários ao incluir mensagens padrão em e-mails, notificações e no rodapé das páginas, reforçando a prática de conferir URLs e domínios. Essa abordagem educativa incentiva hábitos de segurança e reduz o risco de que os usuários sejam vítimas desse tipo de golpe.
 
 ### Rug Pull
 
 ### Erros na interace do usuário
+
+## Ferramentas de teste
