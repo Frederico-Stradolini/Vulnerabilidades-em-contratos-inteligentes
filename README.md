@@ -1,4 +1,4 @@
-# Guia de segurança em contratos inteligentes
+# Guia de segurança para contratos inteligentes
 Os contratos inteligentes são a base de tecnologias emergentes como blockchain e Web3, permitindo a execução automática de acordos digitais sem a necessidade de intermediários. No entanto, sua crescente popularidade trouxe à tona desafios significativos relacionados à segurança. Vulnerabilidades em contratos inteligentes podem resultar em perdas financeiras, comprometimento de dados e falhas de integridade em aplicações descentralizadas (dApps).
 
 Este guia foi elaborado para explorar as principais vulnerabilidades que afetam os contratos inteligentes, desde problemas como ataques de reentrância até falhas de validação de entrada. Veremos como é um código vulnerável e as estratégias necessárias para mitigas os riscos de ataques ao contrato.
@@ -352,10 +352,31 @@ Phishing é um ataque cibernético que utiliza e-mails, mensagens, sites ou cham
 
 Em um golpe típico, o atacante finge ser uma figura confiável, como um colega ou representante de marca, e instrui a vítima a clicar em links, abrir anexos ou realizar pagamentos. Esses links podem levar a sites falsos que imitam os originais, projetados para roubar dados ou acessar carteiras digitais, possibilitando a transferência de fundos para o atacante.
 
-Para proteger-se contra phishing, é fundamental verificar URLs, domínios de e-mails, acessar apenas fontes confiáveis e utilizar antivírus no navegador para identificar e bloquear sites maliciosos. Além disso, gerentes e desenvolvedores de dApps podem ajudar a conscientizar os usuários ao incluir mensagens padrão em e-mails, notificações e no rodapé das páginas, reforçando a prática de conferir URLs e domínios. Essa abordagem educativa incentiva hábitos de segurança e reduz o risco de que os usuários sejam vítimas desse tipo de golpe.
+Para proteger-se contra phishing, é fundamental verificar URLs, domínios de e-mails, acessar apenas fontes confiáveis e utilizar antivírus no navegador para identificar e bloquear sites maliciosos. Além disso, gerentes e desenvolvedores de dApps podem ajudar a conscientizar os usuários ao incluir mensagens padrão em e-mails, notificações e no rodapé das páginas, reforçando a prática de conferir URLs e domínios. Essa abordagem educativa incentiva hábitos de segurança e pode reduzir o risco de que os usuários sejam vítimas desse tipo de golpe.
 
 ### Rug Pull
+O rug pull é um golpe no mercado de criptomoedas em que desenvolvedores atraem investidores com promessas de retornos elevados, aumentam o valor do token e, repentinamente, retiram os fundos, abandonando o projeto e deixando os ativos sem valor. Esse esquema geralmente envolve marketing agressivo e distribuição concentrada de tokens.
+
+Para evitar esses projetos fraudulentos, é importante: verificar a equipe por trás do desenvolvimento do projeto e sua reputação; avaliar a distribuição dos tokens, verificando se uma única entidade detém grande parte dos ativos; e examinar o Whitepaper para compreender a viabilidade e a seriedade do projeto. Pesquisas aprofundadas e cautela ao investir são fundamentais para evitar fraudes no mercado de criptomoedas.
+
+Como desenvolvedores, é essencial incluir avisos sobre os riscos ao adquirir tokens com baixa capitalização de mercado. Além disso, ao criar um novo token, recomenda-se adotar o máximo de transparência possível e oferecer uma documentação clara e detalhada, reforçando a confiabilidade do projeto.
 
 ### Erros na interace do usuário
+A interface do usuário é responsável por intermediar as interações do usuário com o backend de uma página, em dApps é crucial para a interação com contratos inteligentes, mas erros nela podem comprometer tanto a experiência quanto a segurança dos ativos.
+
+Entre os principais erros de interfaces em dApps, destacam-se:
+
+ - **Exibição de dados incorretos:** a interface pode mostrar saldos de tokens, taxas de gas ou resultados de transações desatualizados, levando usuários a autorizar valores maiores do que o pretendido.
+ - **Alteração de endereços de destino:** um endereço confiável é exibido, mas os fundos são direcionados para outro, algo comum em ataques maliciosos.
+ - **Ocultação de funcionalidades críticas:** algumas interfaces não deixam claras todas as permissões solicitadas, como acesso total a uma carteira, expondo o usuário a ações prejudiciais sem perceber.
+ - **Problemas de legibilidade e design:** botões mal posicionados, mensagens confusas ou falta de clareza nas etapas podem dificultar a navegação, especialmente para quem tem pouco conhecimento técnico.
+
+Esses erros podem causar desde confusões até perdas financeiras e prejudicam a confiança no sistema.
+
+Para evitar esses problemas, algumas medidas são essenciais. Primeiramente, a interface deve estar sincronizada com o estado atual do contrato inteligente, garantindo que os dados exibidos reflitam as condições reais. A transparência nas transações é fundamental, e informações claras sobre permissões, taxas de gás e endereços envolvidos devem ser exibidas antes que o usuário autorize qualquer ação. Além disso, um design focado no usuário deve ser adotado, criar interfaces intuitivas, claras e acessíveis, reduzem a confusão e os erros de interação. Por fim, submeter a interface a testes rigorosos de usabilidade com diferentes perfis de usuários é essencial para identificar e corrigir falhas antes do lançamento
 
 ## Ferramentas de teste
+
+## Cocnclusão
+
+[Voltar ao topo](#guia-de-segurança-para-contratos-inteligentes)
